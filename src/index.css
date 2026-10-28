@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 98%;
+    --foreground: 224 32% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 32% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 32% 12%;
+    --primary: 243 75% 42%;            /* deep indigo */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 16% 94%;
+    --secondary-foreground: 224 32% 16%;
+    --muted: 220 16% 95%;
+    --muted-foreground: 220 9% 44%;
+    --accent: 226 60% 96%;
+    --accent-foreground: 243 60% 32%;
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 90%;
+    --input: 220 14% 88%;
+    --ring: 221 90% 55%;
+    --radius: 0.625rem;
+
+    --brand: 243 75% 42%;
+    --brand-foreground: 0 0% 100%;
+    --brand-soft: 238 80% 96%;
+    --action: 221 90% 54%;             /* electric blue */
+    --action-soft: 214 95% 95%;
+    --positive: 173 72% 33%;           /* teal */
+    --positive-soft: 170 60% 94%;
+    --warning: 35 92% 45%;
+    --warning-soft: 42 95% 93%;
+    --ai: 262 70% 56%;                 /* violet */
+    --ai-soft: 262 90% 97%;
+
+    --sidebar: 0 0% 100%;
+    --sidebar-foreground: 224 20% 30%;
+    --sidebar-border: 220 14% 91%;
+    --sidebar-accent: 238 80% 96%;
+
+    --chart-1: 243 75% 52%;
+    --chart-2: 221 90% 56%;
+    --chart-3: 173 72% 38%;
+    --chart-4: 262 70% 60%;
+    --chart-5: 35 92% 50%;
+    --chart-6: 330 70% 55%;
+    --chart-grid: 220 14% 91%;
+  }
+
+  .dark {
+    --background: 224 18% 8%;
+    --foreground: 220 20% 94%;
+    --card: 224 16% 11%;
+    --card-foreground: 220 20% 94%;
+    --popover: 224 16% 12%;
+    --popover-foreground: 220 20% 94%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 230 40% 10%;
+    --secondary: 222 14% 17%;
+    --secondary-foreground: 220 20% 92%;
+    --muted: 222 14% 15%;
+    --muted-foreground: 220 10% 62%;
+    --accent: 235 30% 20%;
+    --accent-foreground: 230 90% 86%;
+    --destructive: 0 70% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 13% 20%;
+    --input: 222 13% 23%;
+    --ring: 217 92% 62%;
+
+    --brand: 239 84% 67%;
+    --brand-foreground: 230 40% 10%;
+    --brand-soft: 239 40% 18%;
+    --action: 217 92% 62%;
+    --action-soft: 217 50% 18%;
+    --positive: 170 62% 48%;
+    --positive-soft: 172 40% 14%;
+    --warning: 38 92% 56%;
+    --warning-soft: 38 50% 15%;
+    --ai: 262 85% 74%;
+    --ai-soft: 262 35% 18%;
+
+    --sidebar: 224 17% 9.5%;
+    --sidebar-foreground: 220 14% 76%;
+    --sidebar-border: 222 13% 17%;
+    --sidebar-accent: 235 28% 18%;
+
+    --chart-1: 239 84% 70%;
+    --chart-2: 217 92% 64%;
+    --chart-3: 170 62% 50%;
+    --chart-4: 262 85% 76%;
+    --chart-5: 38 92% 60%;
+    --chart-6: 330 75% 66%;
+    --chart-grid: 222 13% 19%;
+  }
+
+  * { @apply border-border; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  ::selection { background: hsl(var(--action) / 0.2); }
+  :focus-visible { outline: none; }
+  /* grid items default to min-width:auto, which lets long truncated text push cards past the viewport */
+  .grid > * { min-width: 0; }
+}
+
+@layer components {
+  .num { font-variant-numeric: tabular-nums; }
+  .page-title { @apply text-xl font-semibold tracking-tight sm:text-2xl; }
+  .scrollbar-thin { scrollbar-width: thin; }
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.6) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.6) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+}
+
+.recharts-wrapper text { fill: hsl(var(--muted-foreground)); font-size: 11px; }
+.recharts-cartesian-grid line { stroke: hsl(var(--chart-grid)); }
+.recharts-tooltip-cursor { fill: hsl(var(--muted) / 0.6); }
+.recharts-surface:focus, .recharts-sector:focus, .recharts-rectangle:focus { outline: none; }
