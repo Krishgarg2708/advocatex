@@ -7,7 +7,6 @@ export const BRANDS: Brand[] = [
   { id: "b3", name: "VoltEdge Power", category: "Batteries & Lighting", hue: 38 },
   { id: "b4", name: "StopRight Components", category: "Brakes & Filters", hue: 352 },
 ];
-
 export const CITIES: { city: string; state: string }[] = [
   { city: "Pune", state: "Maharashtra" },
   { city: "Mumbai", state: "Maharashtra" },
